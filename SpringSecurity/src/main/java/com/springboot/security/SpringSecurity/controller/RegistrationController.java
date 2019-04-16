@@ -1,5 +1,8 @@
 package com.springboot.security.SpringSecurity.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.springboot.security.SpringSecurity.model.UserInfo;
+import com.springboot.security.SpringSecurity.repository.UserRepository;
 import com.springboot.security.SpringSecurity.service.SecurityService;
 import com.springboot.security.SpringSecurity.service.UserService;
 
@@ -24,7 +28,8 @@ public class RegistrationController {
 	@Autowired 
 	private SecurityService securityService;
 	
-	
+	@Autowired
+	private UserRepository userRepository;
 	
 	
 	
@@ -36,6 +41,7 @@ public class RegistrationController {
 	}
 	
 	
+	List<UserInfo> registerdUsers = new ArrayList<>();
 	
 	
 	
@@ -43,6 +49,14 @@ public class RegistrationController {
 	@PostMapping(value="/register-process")
 	public String registrationPage(@ModelAttribute UserInfo userInfo, HttpServletRequest request) {
 		String password = userInfo.getPassword();
+		
+		if(userInfo.getEmail().equalsIgnoreCase( userRepository.findEmailIgnoreCase(userInfo.getEmail(), true).getEmail()))  {
+			return "redirect:/registration";
+		}
+		
+		
+		
+		
 		UserInfo dbUser = userService.save(userInfo);
 		if(dbUser!=null) {
 			securityService.autoLogin(userInfo.getEmail(), password, request);
