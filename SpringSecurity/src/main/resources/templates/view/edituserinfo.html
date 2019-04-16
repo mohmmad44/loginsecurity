@@ -2,19 +2,30 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
-<title>User Dashboard</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<title>Edit Form</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+  <style>
+  .inputError {
+  color:red;
+  }
+  </style>
 </head>
 <body>
 
 <div class="container-fluid">
 <div class="row">
 <div class="col-md-12">
-<h2>Welcome, <span th:text="${user.firstName+ ' ' + user.lastName}"></span> to User Dashboard</h2>
+<h2>Welcome, <span th:text="${user.firstName+ ' ' + user.lastName}"></span> to Edit Page
+<a th:href="@{/logout}" class="btn btn-primary" style="float:right;margin-top:10px;margin-bottom:10px;">Logout</a>
+</h2>
 
 
-<a th:href="@{/logout}" class="btn btn-primary">Logout</a>
-<form method="post" id="loginForm" name="loginForm" th:action="@{${action}}" th:object="${user}" novalidate="novalidate">
+
+<form method="post" id="updateForm" name="updateForm" th:action="@{${action}}" th:object="${user}" novalidate="novalidate">
 <div class="form-group">
 <input type="text" name="firstName" id="firstName" class="form-control" placeholder="First Name" required="required" th:field="*{firstName}">
 </div>
@@ -35,6 +46,8 @@
 <input type="text" name="role" id="role" class="form-control" placeholder="Role" required="required" th:field="*{role}" readonly="readonly">
 </div>
 
+
+
 <div class="form-group">
 <button type="submit" class="btn btn-primary">Update</button>
 
@@ -44,3 +57,55 @@
 </div>
 </div>
 </div>
+<script type="text/javascript">
+	$(function() {
+	    $("#updateForm").validate({
+	    	errorClass:'inputError',
+	    	validClass:'InputSuccess',
+	    	rules: {
+	    		firstName:{required:true},
+	    		lastName:{required:true},
+	    		email:{required:true,email:true},
+	    		password:{required:true,minlength:6,maxlength:10},
+	    		phoneNumber:{required:true,minlength:10,maxlength:10},
+	    		role: {required:true},
+	    		address: {required:true}
+	    		},
+	    		
+	    	messages: {	
+	    		firstName: {
+	    			required: "Please enter first name"
+	    		},
+	    		lastName: {
+	    			required: "Please enter first name"
+	    		},
+	    		email: {
+	    			required: "Please enter email",
+	    			email : "Please enter valid email"
+	    		},
+	    		password:{
+	    			required:"Please enter password",
+	    			minlength:"Password must be 6 digits length",
+	    			maxlength:"Password cann't exceed 10 digits length"
+	    		},
+	    		phoneNumber:{
+	    			required:"Please enter phone number",
+	    			minlength:"phone number must be 10 digits length",
+	    			maxlength:"phone number cann't exceed 10 digits length"
+	    		},
+	    		role: {
+	    			required: "Please choose role"
+	    		},
+	    		address: {
+	    			required: "Please enter address"
+	    		}
+
+	    	},
+	    	submitHandler: function(form) {	
+			     form.submit();
+	    		}
+	    	});
+	  });
+	</script>
+</body>
+</html>
