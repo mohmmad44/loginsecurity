@@ -159,3 +159,6 @@ Caused by: java.lang.ClassNotFoundException: List
 2019-04-16 17:43:51 - [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 33 ms
 2019-04-16 17:44:05 - [http-nio-8080-exec-6] INFO  c.s.s.S.service.LoginServcieImpl -  Inside loadUserByUsername : LoginServiceImpl  
 2019-04-16 17:44:28 - [http-nio-8080-exec-2] INFO  c.s.s.S.service.LoginServcieImpl -  Inside loadUserByUsername : LoginServiceImpl  
+2019-04-16 18:00:32 - [http-nio-8080-exec-8] INFO  c.s.s.S.service.LoginServcieImpl -  Inside loadUserByUsername : LoginServiceImpl  
+2019-04-16 18:01:14 - [http-nio-8080-exec-8] INFO  c.s.s.S.service.LoginServcieImpl -  Inside loadUserByUsername : LoginServiceImpl  
+2019-04-16 18:01:14 - [http-nio-8080-exec-8] INFO  c.s.s.S.service.LoginServcieImpl -  Inside loadUserByUsername : LoginServiceImpl  
