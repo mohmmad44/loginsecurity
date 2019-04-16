@@ -14,53 +14,42 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class LoginController {
-	
-	@Autowired 
+
+	@Autowired
 	private ServletContext context;
 
-	
-	
-	@GetMapping(value="/")
+	@GetMapping(value = "/")
 	public String login() {
 		return "redirect:/login";
 	}
-	
-	
-	
-	
-	@GetMapping(value="/login")
+
+	@GetMapping(value = "/login")
 	public String loginpage() {
 		return "view/login";
 	}
-	
-	
-	
-	@GetMapping(value="/loginfailure")
+
+	@GetMapping(value = "/loginfailure")
 	public String loginfailure(Model model) {
-		String email = (String)context.getAttribute("email");
+		String email = (String) context.getAttribute("email");
 		System.out.println(email + "  & its password  is Invalid  ");
 		model.addAttribute("errormessage", "Invalid Email & Password");
 		return "view/login";
 	}
-	
-	
-	@GetMapping(value="/access-denied")
+
+	@GetMapping(value = "/access-denied")
 	public String accessdenied(Model model) {
 		model.addAttribute("errormessage", "Access Denied");
 		return "view/login";
 	}
-	
-	
-	@GetMapping(value="/logout")
-	public String logoutPage (HttpServletRequest request, HttpServletResponse response) {
-	    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-	    
-	    if (auth != null){    
-	        new SecurityContextLogoutHandler().logout(request, response, auth);
-	    }
-	    return "view/login";	
-	    }
-	
-	
+
+	@GetMapping(value = "/logout")
+	public String logoutPage(HttpServletRequest request, HttpServletResponse response) {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+
+		if (auth != null) {
+			new SecurityContextLogoutHandler().logout(request, response, auth);
+		}
+		return "redirect:/login";
+	}
 
 }

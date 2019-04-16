@@ -1,6 +1,7 @@
 package com.springboot.security.SpringSecurity.service;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -41,5 +42,16 @@ public class UserServiceImpl implements UserService {
 		userInfo.setCreatedDate(new Date());
 		return userRepository.save(userInfo);
 	}
+	
+	@Override
+	public UserInfo update(UserInfo userInfo) {
+		return userRepository.save(userInfo);
+	}
+
+	@Override
+	public List<UserInfo> getAllUsers() {
+		return (List<UserInfo>) userRepository.findAll();
+	}
+
 
 }

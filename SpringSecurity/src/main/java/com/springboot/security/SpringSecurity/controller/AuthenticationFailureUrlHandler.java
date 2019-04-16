@@ -10,15 +10,15 @@ import org.springframework.stereotype.Component;
 @Component
 public class AuthenticationFailureUrlHandler implements ApplicationListener<AuthenticationFailureBadCredentialsEvent> {
 
-	@Autowired private ServletContext context;
-	
+	@Autowired
+	private ServletContext context;
+
 	@Override
 	public void onApplicationEvent(AuthenticationFailureBadCredentialsEvent event) {
 		Object email = event.getAuthentication().getPrincipal();
 		Object password = event.getAuthentication().getCredentials();
 		context.setAttribute("email", email);
 		context.setAttribute("password", password);
-		
 	}
 
 }
