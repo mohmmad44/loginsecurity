@@ -2,6 +2,8 @@ package com.springboot.security.SpringSecurity.service;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -25,9 +27,12 @@ public class SecurityServiceImpl implements SecurityService {
 	private UserDetailsService userDetailsService;
 
 	
+	
+	
+	
 	@Override
 	public void autoLogin(String email, String password, HttpServletRequest request) {
-		
+	
 		
 		
 		
