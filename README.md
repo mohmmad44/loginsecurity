@@ -36,4 +36,11 @@ java -jar target\SpringSecurity-0.0.1-SNAPSHOT.jar
  
    Documents are generated in \SpringSecurity\target\site\apidocs
    and go to index.html
+   
+   
+   
+9. To get all JSON registered user details
+```
+http://localhost:8080/getusers
+  ---
  
