@@ -17,15 +17,20 @@ import com.springboot.security.SpringSecurity.model.UserInfo;
 import com.springboot.security.SpringSecurity.repository.UserRepository;
 import com.springboot.security.SpringSecurity.services.ILoginService;
 
+
+
+/**
+ * <p>This is LoginServcie, All the methods in  Interface ILoginService are implemented here  . . .
+ */
 @Service
 @Transactional
-public class LoginServcieImpl implements ILoginService {
+public class LoginServcie implements ILoginService {
 	
 	
 	@Autowired 
 	private UserRepository userRepository;
 
-	static final Logger logger = LoggerFactory.getLogger(LoginServcieImpl.class);
+	static final Logger logger = LoggerFactory.getLogger(LoginServcie.class);
 	
 	/**
 	 * <p>This is loadUserByUsername method, used  to get user information based on . . .

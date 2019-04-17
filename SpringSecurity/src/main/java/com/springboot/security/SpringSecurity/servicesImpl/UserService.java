@@ -14,9 +14,14 @@ import com.springboot.security.SpringSecurity.repository.UserRepository;
 import com.springboot.security.SpringSecurity.services.IUserService;
 import com.springboot.security.SpringSecurity.util.PasswordUtil;
 
+
+
+/**
+ * <p>This is UserService, All the methods in  Interface IUserService are implemented here  . . .
+ */
 @Service
 @Transactional
-public class UserServiceImpl implements IUserService {
+public class UserService implements IUserService {
 	
 	
 	
@@ -24,10 +29,15 @@ public class UserServiceImpl implements IUserService {
 	@Autowired 
 	private UserRepository userRepository;
 
-	static final Logger logger = LoggerFactory.getLogger(LoginServcieImpl.class);
+	static final Logger logger = LoggerFactory.getLogger(LoginServcie.class);
 	
 	
-	
+	/**
+	 * <p>This is findByEmail method, used  find userInfo based on email
+	 * </p>
+	 * @param Stirng email 
+	 * @return UserInfo userInfo.
+	 */
 	@Override
 	public UserInfo findByEmail(String email) {
 		logger.info(" Inside findByEmail : UserServiceImpl  ");
@@ -35,7 +45,12 @@ public class UserServiceImpl implements IUserService {
 	}
 
 	
-	
+	/**
+	 * <p>This is save method, used  to save userinfo in db.
+	 * </p>
+	 * @param UserInfo userInfo
+	 * @return UserInfo userInfo.
+	 */
 	@Override
 	public UserInfo save(UserInfo userInfo) {
 		logger.info(" Inside save : UserServiceImpl  ");
@@ -48,7 +63,12 @@ public class UserServiceImpl implements IUserService {
 	
 	
 	
-	
+	/**
+	 * <p>This is update method, used  to update userinfo in database.
+	 * </p>
+	 * @param UserInfo userInfo 
+	 * @return UserInfo userInfo.
+	 */
 	@Override
 	public UserInfo update(UserInfo userInfo) {
 		logger.info(" Inside update : UserServiceImpl  ");
@@ -56,7 +76,12 @@ public class UserServiceImpl implements IUserService {
 	}
 
 	
-	
+	/**
+	 * <p>This is getAllUsers method, used  to all the users from database.
+	 * </p>
+	 * 
+	 * @return List of UserInfos
+	 */
 	@Override
 	public List<UserInfo> getAllUsers() {
 		logger.info(" Inside getAllUsers : UserServiceImpl  ");

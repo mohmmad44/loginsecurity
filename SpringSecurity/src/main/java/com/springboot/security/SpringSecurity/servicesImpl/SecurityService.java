@@ -17,9 +17,13 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.springboot.security.SpringSecurity.services.ISecurityService;
 
+
+/**
+ * <p>This is SecurityService, All the methods in  Interface ISecurityService are implemented here  . . .
+ */
 @Service
 @Transactional
-public class SecurityServiceImpl implements ISecurityService {
+public class SecurityService implements ISecurityService {
 	
 	
 	@Autowired 
@@ -31,7 +35,14 @@ public class SecurityServiceImpl implements ISecurityService {
 	
 	
 	
-	
+	/**
+	 * <p>This is autoLogin method, used  to auto login after registration
+	 * </p>
+	 * @param Stirng email 
+	 * @param Stirng password 
+	 * @param HttpServletRequest request 
+	 * 
+	 */
 	@Override
 	public void autoLogin(String email, String password, HttpServletRequest request) {
 	

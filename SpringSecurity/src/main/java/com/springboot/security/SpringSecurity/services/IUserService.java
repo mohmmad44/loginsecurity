@@ -4,6 +4,10 @@ import java.util.List;
 
 import com.springboot.security.SpringSecurity.model.UserInfo;
 
+
+/**
+ * <p>This is IUserService Interface  . . .
+ */
 public interface IUserService {
 
 	UserInfo findByEmail(String email);
