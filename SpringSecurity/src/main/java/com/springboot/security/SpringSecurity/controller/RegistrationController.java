@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.springboot.security.SpringSecurity.exception.ExistingEmailException;
 import com.springboot.security.SpringSecurity.model.UserInfo;
 import com.springboot.security.SpringSecurity.repository.UserRepository;
 import com.springboot.security.SpringSecurity.services.ISecurityService;
@@ -42,7 +43,7 @@ public class RegistrationController {
 	
 	
 	@PostMapping(value="/register-process")
-	public String registrationPage(@ModelAttribute UserInfo userInfo, HttpServletRequest request, Principal principal) {
+	public String registrationPage(@ModelAttribute UserInfo userInfo, HttpServletRequest request, Principal principal) throws ExistingEmailException {
 		String password = userInfo.getPassword();
 		
 			
