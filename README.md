@@ -42,5 +42,5 @@ java -jar target\SpringSecurity-0.0.1-SNAPSHOT.jar
 9. To get all JSON registered user details
 ```
 http://localhost:8080/getusers
-  ---
+ ```
  
