@@ -18,7 +18,7 @@
  ```
  mvn clean install
   ```
-After the build is successs.
+   After the build is successs.
 
 6. Start the application by running the following command
 
@@ -27,3 +27,12 @@ java -jar target\SpringSecurity-0.0.1-SNAPSHOT.jar
 ```
 
 7. Open browser and go to (http://localhost:8080)
+
+8. To generate the documentation of the project
+```
+ mvn javadoc:javadoc
+ ```
+ 
+    Documents are generated in \SpringSecurity\target\site\apidocs
+    and go to indes.html
+ 
