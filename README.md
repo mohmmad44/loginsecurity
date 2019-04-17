@@ -18,7 +18,7 @@
  ```
  mvn clean install
   ```
-   After the build is successs.
+  After the build is successs.
 
 6. Start the application by running the following command
 
