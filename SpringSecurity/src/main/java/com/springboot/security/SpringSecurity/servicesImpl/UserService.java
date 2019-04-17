@@ -55,26 +55,14 @@ public class UserService implements IUserService   {
 	 * @return UserInfo userInfo.
 	 */
 	@Override
-	public UserInfo save(UserInfo userInfo) throws ExistingEmailException {
+	public UserInfo save(UserInfo userInfo) {
 		
 		
 		//TODO check for existing previous emails
 		
-		Iterable<UserInfo> userEmails = new ArrayList<>();
-		userEmails =	userRepository.findAll();
 		
-		List<String> emailsList = new ArrayList<>();
-		for(UserInfo a : userEmails) {
-			if (null != a) {
-				emailsList.add(a.getEmail());
-			}
-		}
 		
-		if(!CollectionUtils.isEmpty(emailsList)) {
-			if(emailsList.contains(userInfo.getEmail())) {
-				throw new ExistingEmailException("Email: "+ userInfo.getEmail() +" entered is already present in database");
-			}
-		}
+		
 		logger.info(" Inside save : UserServiceImpl  ");
 		String password = PasswordUtil.getPasswordHash(userInfo.getPassword());
 		userInfo.setPassword(password);

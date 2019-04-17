@@ -43,7 +43,15 @@ public class RegistrationController {
 	
 	
 	@PostMapping(value="/register-process")
-	public String registrationPage(@ModelAttribute UserInfo userInfo, HttpServletRequest request, Principal principal) throws ExistingEmailException {
+	public String registrationPage(@ModelAttribute UserInfo userInfo, HttpServletRequest request, Principal principal, Model model) {
+		
+		UserInfo emailInfo = userService.findByEmail(userInfo.getEmail());
+		if(emailInfo!=null) {
+			model.addAttribute("errormessage","email already exits");
+			model.addAttribute("user", userInfo);
+			return "view/registration";
+		}
+		
 		String password = userInfo.getPassword();
 		
 			

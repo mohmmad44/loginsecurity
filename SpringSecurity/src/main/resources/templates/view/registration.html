@@ -72,9 +72,9 @@
 	    	rules: {
 	    		firstName:{required:true},
 	    		lastName:{required:true},
-	    		email:{required:true,email:true,unique=true},
+	    		email:{required:true,email:true},
 	    		password:{required:true,minlength:6,maxlength:10},
-	    		phoneNumber:{required:true,minlength:10,maxlength:10},
+	    		phoneNumber:{required:true},
 	    		role: {required:true}
 	    		},
 	    		
@@ -95,9 +95,7 @@
 	    			maxlength:"Password cann't exceed 10 digits length"
 	    		},
 	    		phoneNumber:{
-	    			required:"Please enter phone number",
-	    			minlength:"phone number must be 10 digits length",
-	    			maxlength:"phone number cann't exceed 10 digits length"
+	    			required:"Please enter phone number"
 	    		},
 	    		role: {
 	    			required: "Please choose role"
