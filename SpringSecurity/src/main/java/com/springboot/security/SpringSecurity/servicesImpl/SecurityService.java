@@ -17,9 +17,13 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.springboot.security.SpringSecurity.services.ISecurityService;
 
+
+/**
+ * <p>This is SecurityService, All the methods in  Interface ISecurityService are implemented here  . . .
+ */
 @Service
 @Transactional
-public class SecurityServiceImpl implements ISecurityService {
+public class SecurityService implements ISecurityService {
 	
 	
 	@Autowired 
