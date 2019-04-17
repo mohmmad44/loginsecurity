@@ -18,16 +18,32 @@ public class LoginController {
 	@Autowired
 	private ServletContext context;
 
+	
+	/**
+     * Entering into the port 8080 will redirect to login  
+     * @return redirect to login
+     */
 	@GetMapping(value = "/")
 	public String login() {
 		return "redirect:/login";
 	}
 
+	
+	/**
+     * Entering into login port 
+     * @return redirect to login
+     */
 	@GetMapping(value = "/login")
 	public String loginpage() {
 		return "view/login";
 	}
 
+	
+	
+	/**
+     * shows login failure when enters wrong credentials 
+     * @return redirect to login
+     */
 	@GetMapping(value = "/loginfailure")
 	public String loginfailure(Model model) {
 		String email = (String) context.getAttribute("email");
@@ -36,12 +52,22 @@ public class LoginController {
 		return "view/login";
 	}
 
+	/**
+     * shows access denied when enters wrong credentials 
+     * @return redirect to login
+     */
 	@GetMapping(value = "/access-denied")
 	public String accessdenied(Model model) {
 		model.addAttribute("errormessage", "Access Denied");
 		return "view/login";
 	}
 
+	
+	
+	/**
+     * logout the already logedin user
+     * @return redirect to login
+     */
 	@GetMapping(value = "/logout")
 	public String logoutPage(HttpServletRequest request, HttpServletResponse response) {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();

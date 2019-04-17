@@ -21,6 +21,12 @@ public class UserController {
 	@Autowired
 	private IUserService userService;
 
+	
+	
+	/**
+     * method returns the user details
+     * @return view/userdashboard 
+     */
 	@GetMapping(value = "/dashboard")
 	public String userDashboard(Model model, Principal principal) {
 		UserInfo userInfo = userService.findByEmail(principal.getName());
@@ -29,6 +35,11 @@ public class UserController {
 
 	}
 
+	
+	/**
+     * method edits the user details
+     * @return view/edituserinfo 
+     */
 	@GetMapping(value = "/edituserinfo")
 	public String editUserInfo(Model model, Principal principal) {
 		UserInfo userInfo = userService.findByEmail(principal.getName());
@@ -38,6 +49,11 @@ public class UserController {
 
 	}
 
+	
+	/**
+     * post mapping method saves the super user details into database
+     * @return redirect:/users/dashboard
+     */
 	@PostMapping(value = "/updateuserinfo")
 	public String updateuserinfo(@ModelAttribute UserInfo userInfo, Model model, Principal principal,
 			RedirectAttributes attributes) {

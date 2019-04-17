@@ -13,7 +13,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.springboot.security.SpringSecurity.model.UserInfo;
 import com.springboot.security.SpringSecurity.services.IUserService;
-
+/**
+ * super admin controller  
+ */
 @Controller
 @RequestMapping(value = "/superadmin")
 public class SuperAdminController {
@@ -21,13 +23,24 @@ public class SuperAdminController {
 	@Autowired
 	private IUserService userService;
 
+	
+	
+	/**
+     * method redirects to super admin dashboard page 
+     * @return view/superadmindashboard 
+     */
 	@GetMapping(value = "/dashboard")
 	public String userDashboard(Model model, Principal principal) {
 		UserInfo userInfo = userService.findByEmail(principal.getName());
 		model.addAttribute("user", userInfo);
 		return "view/superadmindashboard";
 	}
-
+	
+	
+	/**
+     * method edits the super admin details
+     * @return view/edituserinfo 
+     */
 	@GetMapping(value = "/edituserinfo")
 	public String editUserInfo(Model model, Principal principal) {
 		UserInfo userInfo = userService.findByEmail(principal.getName());
@@ -37,6 +50,12 @@ public class SuperAdminController {
 
 	}
 
+	
+	
+	/**
+     * post mapping method saves the super admin details into database
+     * @return redirect:/superadmin/dashboard
+     */
 	@PostMapping(value = "/updateuserinfo")
 	public String updateuserinfo(@ModelAttribute UserInfo userInfo, Model model, Principal principal,
 			RedirectAttributes attributes) {
