@@ -35,7 +35,14 @@ public class SecurityService implements ISecurityService {
 	
 	
 	
-	
+	/**
+	 * <p>This is autoLogin method, used  to auto login after registration
+	 * </p>
+	 * @param Stirng email 
+	 * @param Stirng password 
+	 * @param HttpServletRequest request 
+	 * 
+	 */
 	@Override
 	public void autoLogin(String email, String password, HttpServletRequest request) {
 	

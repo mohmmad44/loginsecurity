@@ -33,10 +33,10 @@ public class UserService implements IUserService {
 	
 	
 	/**
-	 * <p>This is getPasswordHash method, used  to encode the password.
+	 * <p>This is findByEmail method, used  find userInfo based on email
 	 * </p>
-	 * @param Stirng password 
-	 * @return String encoded paswword.
+	 * @param Stirng email 
+	 * @return UserInfo userInfo.
 	 */
 	@Override
 	public UserInfo findByEmail(String email) {
@@ -46,10 +46,10 @@ public class UserService implements IUserService {
 
 	
 	/**
-	 * <p>This is getPasswordHash method, used  to encode the password.
+	 * <p>This is save method, used  to save userinfo in db.
 	 * </p>
-	 * @param Stirng password 
-	 * @return String encoded paswword.
+	 * @param UserInfo userInfo
+	 * @return UserInfo userInfo.
 	 */
 	@Override
 	public UserInfo save(UserInfo userInfo) {
@@ -64,7 +64,7 @@ public class UserService implements IUserService {
 	
 	
 	/**
-	 * <p>This is update method, used  to userinfo in database.
+	 * <p>This is update method, used  to update userinfo in database.
 	 * </p>
 	 * @param UserInfo userInfo 
 	 * @return UserInfo userInfo.
