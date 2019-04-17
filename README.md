@@ -33,6 +33,6 @@ java -jar target\SpringSecurity-0.0.1-SNAPSHOT.jar
  mvn javadoc:javadoc
  ```
  
-    Documents are generated in \SpringSecurity\target\site\apidocs
-    and go to indes.html
+   Documents are generated in \SpringSecurity\target\site\apidocs
+   and go to index.html
  
