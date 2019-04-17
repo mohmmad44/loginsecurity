@@ -1,8 +1,8 @@
-package com.springboot.security.SpringSecurity.service;
+package com.springboot.security.SpringSecurity.services;
 
 import javax.servlet.http.HttpServletRequest;
 
-public interface SecurityService {
+public interface ISecurityService {
 
 	void autoLogin(String email, String password, HttpServletRequest request);
 

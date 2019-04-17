@@ -1,4 +1,4 @@
-package com.springboot.security.SpringSecurity.service;
+package com.springboot.security.SpringSecurity.servicesImpl;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -15,9 +15,11 @@ import org.springframework.security.web.context.HttpSessionSecurityContextReposi
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.springboot.security.SpringSecurity.services.ISecurityService;
+
 @Service
 @Transactional
-public class SecurityServiceImpl implements SecurityService {
+public class SecurityServiceImpl implements ISecurityService {
 	
 	
 	@Autowired 

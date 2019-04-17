@@ -72,7 +72,7 @@
 	    	rules: {
 	    		firstName:{required:true},
 	    		lastName:{required:true},
-	    		email:{required:true,email:true},
+	    		email:{required:true,email:true,unique=true},
 	    		password:{required:true,minlength:6,maxlength:10},
 	    		phoneNumber:{required:true,minlength:10,maxlength:10},
 	    		role: {required:true}

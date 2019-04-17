@@ -12,15 +12,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.springboot.security.SpringSecurity.model.UserInfo;
-import com.springboot.security.SpringSecurity.service.UserService;
+import com.springboot.security.SpringSecurity.services.IUserService;
 
 @Controller
 @RequestMapping(value = "/admin")
 public class AdminController {
 
 	@Autowired
-	private UserService userService;
+	private IUserService userService;
 
+	
+	
+	
+	/**
+     * Retrieves admin customer information to displays in the dashboard
+     * @return it returns to admindashboard
+     */
 	@GetMapping(value = "/dashboard")
 	public String userDashboard(Model model, Principal principal) {
 		UserInfo userInfo = userService.findByEmail(principal.getName());
@@ -28,6 +35,13 @@ public class AdminController {
 		return "view/admindashboard";
 	}
 	
+	
+	
+	/**
+     * Enters this method when user want to edit his details in database by finding email  
+     * {@link} after finding the user details it redirects to /admin/updateuserinfo URL
+     * @return the information of the login user
+     */
 	@GetMapping(value = "/edituserinfo")
 	public String editUserInfo(Model model, Principal principal) {
 		UserInfo userInfo = userService.findByEmail(principal.getName());
@@ -37,6 +51,11 @@ public class AdminController {
 
 	}
 
+	
+	
+	
+	
+	
 	@PostMapping(value = "/updateuserinfo")
 	public String updateuserinfo(@ModelAttribute UserInfo userInfo, Model model, Principal principal,
 			RedirectAttributes attributes) {

@@ -1,4 +1,4 @@
-package com.springboot.security.SpringSecurity.service;
+package com.springboot.security.SpringSecurity.servicesImpl;
 
 import java.util.Date;
 import java.util.List;
@@ -11,11 +11,12 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.springboot.security.SpringSecurity.model.UserInfo;
 import com.springboot.security.SpringSecurity.repository.UserRepository;
+import com.springboot.security.SpringSecurity.services.IUserService;
 import com.springboot.security.SpringSecurity.util.PasswordUtil;
 
 @Service
 @Transactional
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl implements IUserService {
 	
 	
 	

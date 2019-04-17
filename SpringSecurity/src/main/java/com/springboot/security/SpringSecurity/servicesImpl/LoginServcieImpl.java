@@ -1,4 +1,4 @@
-package com.springboot.security.SpringSecurity.service;
+package com.springboot.security.SpringSecurity.servicesImpl;
 
 import java.util.Arrays;
 
@@ -15,10 +15,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.springboot.security.SpringSecurity.model.UserInfo;
 import com.springboot.security.SpringSecurity.repository.UserRepository;
+import com.springboot.security.SpringSecurity.services.ILoginService;
 
 @Service
 @Transactional
-public class LoginServcieImpl implements LoginService {
+public class LoginServcieImpl implements ILoginService {
 	
 	
 	@Autowired 
@@ -26,7 +27,12 @@ public class LoginServcieImpl implements LoginService {
 
 	static final Logger logger = LoggerFactory.getLogger(LoginServcieImpl.class);
 	
-	
+	/**
+	 * <p>This is loadUserByUsername method, used  to get user information based on . . .
+	 * </p>
+	 * @param username 
+	 * @return userDetails returns the user details.
+	 */
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		logger.info(" Inside loadUserByUsername : LoginServiceImpl  ");

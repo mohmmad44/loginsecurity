@@ -12,14 +12,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.springboot.security.SpringSecurity.model.UserInfo;
-import com.springboot.security.SpringSecurity.service.UserService;
+import com.springboot.security.SpringSecurity.services.IUserService;
 
 @Controller
 @RequestMapping(value = "/users")
 public class UserController {
 
 	@Autowired
-	private UserService userService;
+	private IUserService userService;
 
 	@GetMapping(value = "/dashboard")
 	public String userDashboard(Model model, Principal principal) {

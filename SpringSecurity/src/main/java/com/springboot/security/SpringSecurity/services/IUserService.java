@@ -1,10 +1,10 @@
-package com.springboot.security.SpringSecurity.service;
+package com.springboot.security.SpringSecurity.services;
 
 import java.util.List;
 
 import com.springboot.security.SpringSecurity.model.UserInfo;
 
-public interface UserService {
+public interface IUserService {
 
 	UserInfo findByEmail(String email);
 

@@ -10,6 +10,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+
+/**
+ * The UserInfo Model object contains main details about Users
+ */
 @Entity
 @Table(name = "user")
 public class UserInfo implements Serializable {
@@ -20,36 +24,81 @@ public class UserInfo implements Serializable {
 	private static final long serialVersionUID = -7449027738620253765L;
 	
 	
-	
+	/**
+     * Unique identifier of the UserInfo Model
+     */
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="id")
 	private Long id;
 	
+	/**
+     * First name of the customer
+     */
 	@Column(name="first_name")
 	private String firstName;
 	
+	
+	/**
+     * Last name of the customer
+     */
 	@Column(name="last_name")
 	private String lastName;
 	
+	
+	
+	/**
+     * email of the customer
+     */
 	@Column(name="email", nullable = false)
 	private String email;
 	
+	
+	
+	/**
+     * bycripted Password of the customer
+     */
 	@Column(name="password", nullable = false)
 	private String password;
 	
+	
+	
+	/**
+     * Role of the customer
+     */
 	@Column(name="role")
 	private String role;
 	
+	
+	
+	
+	/**
+     * to know the customer is allowed to access or not according to Role
+     */
 	@Column(name="enabled")
 	private boolean enabled;
 	
+	
+	
+	/**
+     * Phone number of the customer
+     */
 	@Column(name="phone_number")
 	private String phoneNumber;
 	
+	
+	
+	/**
+     * Account creation date of the customer
+     */
 	@Column(name="created_date")
 	private Date createdDate;
 	
+	
+	
+	/**
+     * Address of the customer
+     */
 	@Column(name="address")
 	private String address;
 

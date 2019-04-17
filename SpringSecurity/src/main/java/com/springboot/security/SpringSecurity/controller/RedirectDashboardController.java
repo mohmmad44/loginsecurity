@@ -9,13 +9,13 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.springboot.security.SpringSecurity.model.UserInfo;
-import com.springboot.security.SpringSecurity.service.UserService;
+import com.springboot.security.SpringSecurity.services.IUserService;
 
 @Controller
 public class RedirectDashboardController {
 	
 	@Autowired 
-	private UserService userService;
+	private IUserService userService;
 	
 	@GetMapping(value="/redirectdashboard")
 	public String redirectDashboard(Principal principal, Model model) {

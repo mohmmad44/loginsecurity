@@ -11,14 +11,14 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import com.springboot.security.SpringSecurity.service.LoginService;
+import com.springboot.security.SpringSecurity.services.ILoginService;
 
 @Configuration
 @EnableWebSecurity
 public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter {
 	
 	@Autowired 
-	private LoginService loginService;
+	private ILoginService loginService;
 	
 	
 	@Bean
