@@ -1,5 +1,6 @@
 package com.springboot.security.SpringSecurity.servicesImpl;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -8,7 +9,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.CollectionUtils;
 
+import com.springboot.security.SpringSecurity.exception.ExistingEmailException;
 import com.springboot.security.SpringSecurity.model.UserInfo;
 import com.springboot.security.SpringSecurity.repository.UserRepository;
 import com.springboot.security.SpringSecurity.services.IUserService;
@@ -21,7 +24,7 @@ import com.springboot.security.SpringSecurity.util.PasswordUtil;
  */
 @Service
 @Transactional
-public class UserService implements IUserService {
+public class UserService implements IUserService   {
 	
 	
 	
@@ -52,7 +55,26 @@ public class UserService implements IUserService {
 	 * @return UserInfo userInfo.
 	 */
 	@Override
-	public UserInfo save(UserInfo userInfo) {
+	public UserInfo save(UserInfo userInfo) throws ExistingEmailException {
+		
+		
+		//TODO check for existing previous emails
+		
+		Iterable<UserInfo> userEmails = new ArrayList<>();
+		userEmails =	userRepository.findAll();
+		
+		List<String> emailsList = new ArrayList<>();
+		for(UserInfo a : userEmails) {
+			if (null != a) {
+				emailsList.add(a.getEmail());
+			}
+		}
+		
+		if(!CollectionUtils.isEmpty(emailsList)) {
+			if(emailsList.contains(userInfo.getEmail())) {
+				throw new ExistingEmailException("Email: "+ userInfo.getEmail() +" entered is already present in database");
+			}
+		}
 		logger.info(" Inside save : UserServiceImpl  ");
 		String password = PasswordUtil.getPasswordHash(userInfo.getPassword());
 		userInfo.setPassword(password);
