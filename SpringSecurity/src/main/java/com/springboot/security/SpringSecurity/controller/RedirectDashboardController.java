@@ -17,6 +17,11 @@ public class RedirectDashboardController {
 	@Autowired 
 	private IUserService userService;
 	
+	
+	/**
+     * method redirects to different URLs depends on the Role of the user 
+     * @return redirect to Dashboard depends on the role
+     */
 	@GetMapping(value="/redirectdashboard")
 	public String redirectDashboard(Principal principal, Model model) {
 		UserInfo userInfo = userService.findByEmail(principal.getName());

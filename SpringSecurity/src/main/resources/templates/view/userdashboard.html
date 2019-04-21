@@ -17,9 +17,11 @@
 				<h2>
 					Welcome, <span th:text="${user.firstName+ ' ' + user.lastName}"></span>
 					to User Dashboard
+					
 				</h2>
 				<a th:href="@{/logout}" class="btn btn-primary"
-					style="float: right;">Logout</a> <a class="btn btn-success"
+					style="float: right;">Logout</a>
+				<a class="btn btn-success"
 					th:href="@{'/users/edituserinfo'}">Edit</a>
 
 				<div class="alert alert-success alert-dismissible"
@@ -27,6 +29,7 @@
 					<button type="button" class="close" data-dismiss="alert">&times;</button>
 					<strong th:text="${successmessage}"></strong>
 				</div>
+				
 				<div class="alert alert-danger alert-dismissible"
 					th:if="${errormessage}" style="margin-top: 10px;">
 					<button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -37,6 +40,14 @@
 
 				<table class="table table-bordered" style="margin-top: 10px;">
 					<tbody>
+						<tr>
+							<th>First Name</th>
+							<td th:text="${user.firstName}"></td>
+						</tr>
+						<tr>
+							<th>Last Name</th>
+							<td th:text="${user.lastName}"></td>
+						</tr>
 						<tr>
 							<th>Email</th>
 							<td th:text="${user.email}"></td>

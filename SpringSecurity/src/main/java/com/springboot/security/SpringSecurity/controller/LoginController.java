@@ -23,6 +23,7 @@ public class LoginController {
      * Entering into the port 8080 will redirect to login  
      * @return redirect to login
      */
+	
 	@GetMapping(value = "/")
 	public String login() {
 		return "redirect:/login";

@@ -28,16 +28,12 @@ public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter {
 	
 	
 	
-	
 	@Autowired
 	public void configureAuthentication(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
 		authenticationManagerBuilder.userDetailsService(this.loginService).passwordEncoder(passwordEncoder());
 	}
 	
-	
-	
-	
-	
+		
 	@Bean
 	@Override
 	public AuthenticationManager authenticationManagerBean() throws Exception {
@@ -45,28 +41,24 @@ public class SpringSecurityConfiguration extends WebSecurityConfigurerAdapter {
 	}
 	
 	
-	
-	
-	
-	
 	@Override
 	public void configure(HttpSecurity httpSecurity) throws Exception {
 		httpSecurity.authorizeRequests()
-		.antMatchers("/users/**").hasAnyRole("USER")
-		.antMatchers("/admin/**").hasAnyRole("ADMIN")
-		.antMatchers("/superadmin/**").hasAnyRole("SUPERADMIN")
+					.antMatchers("/users/**").hasAnyRole("USER")
+					.antMatchers("/admin/**").hasAnyRole("ADMIN")
+					.antMatchers("/superadmin/**").hasAnyRole("SUPERADMIN")
 		
-		.and().formLogin()
-		.loginPage("/login")
-		.loginProcessingUrl("/login-process")
-		.usernameParameter("email")
-		.passwordParameter("password")
-		.defaultSuccessUrl("/redirectdashboard")
-		.failureUrl("/loginfailure")
-		.and().logout()
-		.logoutUrl("/logout")
-		.logoutSuccessUrl("/logoutsuccess")
+					.and().formLogin()
+					.loginPage("/login")
+					.loginProcessingUrl("/login-process")
+					.usernameParameter("email")
+					.passwordParameter("password")
+					.defaultSuccessUrl("/redirectdashboard")
+					.failureUrl("/loginfailure")
+					.and().logout()
+					.logoutUrl("/logout")
+					.logoutSuccessUrl("/logoutsuccess")
 		
-		.and().exceptionHandling().accessDeniedPage("/access-denied");
+					.and().exceptionHandling().accessDeniedPage("/access-denied");
 	}
 }

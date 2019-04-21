@@ -53,8 +53,10 @@ public class AdminController {
 
 	
 	
-	
-	
+	/**
+     * Enters this post method when user want to update his details in database   
+     * @return upadted information of the user
+     */
 	
 	@PostMapping(value = "/updateuserinfo")
 	public String updateuserinfo(@ModelAttribute UserInfo userInfo, Model model, Principal principal,
